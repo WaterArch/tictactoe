@@ -45,24 +45,25 @@ int main(){
     roleIndex = rand() % 2;
     playerRole = roles[roleIndex];
     botRole = roles[!(roleIndex)];
-    std::cout << playerRole << botRole << '\n';
     roleIndex = 0;
     while (true) {
 
-        // Board Layout
-        std::cout << "****************************\n";
-        std::cout << "         |         |        \n";
-        std::cout << "    " << x[0][0] << "    |    " << x[0][1] << "    |    " << x[0][2] << std::endl;
-        std::cout << "         |         |        \n";
-        std::cout << "----------------------------\n";
-        std::cout << "         |         |        \n";
-        std::cout << "    " << x[1][0] << "    |    " << x[1][1] << "    |    " << x[1][2] << std::endl;
-        std::cout << "         |         |        \n";
-        std::cout << "----------------------------\n";
-        std::cout << "         |         |        \n";
-        std::cout << "    " << x[2][0] << "    |    " << x[2][1] << "    |    " << x[2][2] << std::endl;
-        std::cout << "         |         |        \n";
-        std::cout << "****************************\n";
+        if (turn != playerRole){
+            // Board Layout
+            std::cout << "****************************\n";
+            std::cout << "         |         |        \n";
+            std::cout << "    " << x[0][0] << "    |    " << x[0][1] << "    |    " << x[0][2] << std::endl;
+            std::cout << "         |         |        \n";
+            std::cout << "----------------------------\n";
+            std::cout << "         |         |        \n";
+            std::cout << "    " << x[1][0] << "    |    " << x[1][1] << "    |    " << x[1][2] << std::endl;
+            std::cout << "         |         |        \n";
+            std::cout << "----------------------------\n";
+            std::cout << "         |         |        \n";
+            std::cout << "    " << x[2][0] << "    |    " << x[2][1] << "    |    " << x[2][2] << std::endl;
+            std::cout << "         |         |        \n";
+            std::cout << "****************************\n";
+        }
 
         checkPossibleMoves();
 
@@ -113,11 +114,9 @@ int main(){
                  
         }
         else if (turn == botRole){
-            std::cout << "Size: " << possibleMoves.size() << '\n';
             chooseMove();
             row = botMove.row;
             col = botMove.col;
-            std::cout << row << " " << col << '\n';
 
             x[row][col] = turn;
             roleIndex = !roleIndex;
